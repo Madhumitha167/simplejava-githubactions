@@ -29,8 +29,10 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+
     - name: Show Contents of /target Directory
-      run: ls -R /target
+      run: ls -R $GITHUB_WORKSPACE/target
+      
     - name: Login to dockerhub
       uses: docker/login-action@v1
       with:
