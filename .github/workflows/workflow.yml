@@ -29,5 +29,13 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+    - name: Login to dockerhub
+      with:
+        username: madhu1607
+        password: 123456789@madhu
+    - name: Build and Push Docker Image
+      run: |
+        docker build -t madhu1607/simplejava:latest .
+        docker push madhu1607/simplejava:latest
     
     
